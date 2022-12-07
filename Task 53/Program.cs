@@ -41,18 +41,14 @@ int[,] GetArray(int m, int n, int minValue, int maxValue)
 
 void Metod(int[,] inArray)
 {
-    for (int j = 0; j < inArray.GetLength(1); j++)
+
+    for (int i = 0; i < inArray.GetLength(1); i++)
     {
-        for (int i = 0; i < inArray.GetLength(0); i++)
-        {
-            int x = inArray[0,j];
-            int y = inArray[inArray.GetLength(0) - 1, j];
-            // inArray[0, j] = qwe[0,j];
-            // inArray[inArray.GetLength(0) - 1, j] = qwe[0, j];
-            inArray[0, j] = y;
-            inArray[inArray.GetLength(0) - 1, j] = x;
-        }
+        int x = inArray[0,i];
+        inArray[0, i] = inArray[inArray.GetLength(0) - 1, i];
+        inArray[inArray.GetLength(0) - 1, i] = x;
     }
+
 }
 
 void PrintArray(int[,] inArray) 
